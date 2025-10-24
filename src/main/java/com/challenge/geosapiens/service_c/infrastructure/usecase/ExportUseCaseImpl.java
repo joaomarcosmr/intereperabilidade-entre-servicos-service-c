@@ -41,7 +41,7 @@ public class ExportUseCaseImpl implements ExportUseCase {
             return convertToCSV(exportData);
         } catch (Exception e) {
             log.error("[ExportUseCase] Error fetching orders: {}", e.getMessage());
-            return "";
+            throw new RuntimeException("Error fetching orders", e.getCause());
         }
     }
 
