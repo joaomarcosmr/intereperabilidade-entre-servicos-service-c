@@ -4,6 +4,3 @@ server:
 spring:
   application:
     name: service-c
-  cloud:
-    compatibility-verifier:
-      enabled: false
