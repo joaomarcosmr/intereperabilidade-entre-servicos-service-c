@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  service-c:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: service-c
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    restart: unless-stopped
+
