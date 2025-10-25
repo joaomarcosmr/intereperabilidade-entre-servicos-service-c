@@ -10,8 +10,12 @@ services:
       - "8082:8082"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
-      - ORDER_SERVICE_URL=http://host.docker.internal:8081
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - ORDER_SERVICE_URL=http://service-b:8081
+    networks:
+      - geosapiens
     restart: unless-stopped
+
+networks:
+  geosapiens:
+    external: true
 
