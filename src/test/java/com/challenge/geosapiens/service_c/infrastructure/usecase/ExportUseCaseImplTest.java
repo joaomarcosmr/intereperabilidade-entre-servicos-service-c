@@ -79,7 +79,7 @@ class ExportUseCaseImplTest {
         String result = exportUseCase.execute();
 
         assertNotNull(result);
-        assertTrue(result.contains("ID Pedido,Descrição,Valor,Nome Entregador,Telefone Entregador,Nome Usuário,Email Usuário"));
+        assertTrue(result.contains("ID Pedido;Descrição;Valor;Nome Entregador;Telefone Entregador;Nome Usuário;Email Usuário"));
         assertTrue(result.contains("Pedido de Camisas do Botafogo"));
         assertTrue(result.contains("Loco Abreu"));
         assertTrue(result.contains("joaomarcos@teste.com"));
@@ -94,7 +94,7 @@ class ExportUseCaseImplTest {
         String result = exportUseCase.execute();
 
         assertNotNull(result);
-        assertTrue(result.contains("ID Pedido,Descrição,Valor,Nome Entregador,Telefone Entregador,Nome Usuário,Email Usuário"));
+        assertTrue(result.contains("ID Pedido;Descrição;Valor;Nome Entregador;Telefone Entregador;Nome Usuário;Email Usuário"));
         assertEquals(1, result.split("\n").length);
         verify(getOrdersUseCase, times(1)).execute();
         verify(orderExportMapper, never()).toOrderExportDTO(any());

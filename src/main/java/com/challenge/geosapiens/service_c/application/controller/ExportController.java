@@ -38,7 +38,7 @@ public class ExportController {
         String csv = exportUseCase.execute();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.parseMediaType("text/csv"));
+        headers.setContentType(MediaType.parseMediaType("text/csv; charset=UTF-8"));
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=orders.csv");
 
         return ResponseEntity.ok()

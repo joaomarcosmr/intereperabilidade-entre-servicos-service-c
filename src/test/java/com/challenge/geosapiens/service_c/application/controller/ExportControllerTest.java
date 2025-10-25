@@ -34,7 +34,7 @@ class ExportControllerTest {
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(csvContent, response.getBody());
-        assertEquals(MediaType.parseMediaType("text/csv"), response.getHeaders().getContentType());
+        assertEquals(MediaType.parseMediaType("text/csv; charset=UTF-8"), response.getHeaders().getContentType());
         assertEquals("attachment; filename=orders.csv", response.getHeaders().getFirst(HttpHeaders.CONTENT_DISPOSITION));
         verify(exportUseCase, times(1)).execute();
     }
@@ -49,7 +49,7 @@ class ExportControllerTest {
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(emptyCSV, response.getBody());
-        assertEquals(MediaType.parseMediaType("text/csv"), response.getHeaders().getContentType());
+        assertEquals(MediaType.parseMediaType("text/csv; charset=UTF-8"), response.getHeaders().getContentType());
         assertEquals("attachment; filename=orders.csv", response.getHeaders().getFirst(HttpHeaders.CONTENT_DISPOSITION));
         verify(exportUseCase, times(1)).execute();
     }

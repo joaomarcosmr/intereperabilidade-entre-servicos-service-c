@@ -49,15 +49,19 @@ public class ExportUseCaseImpl implements ExportUseCase {
         log.info("[ExportUseCase] Converting order list received to CSV format...");
         StringBuilder csv = new StringBuilder();
 
-        csv.append("ID Pedido,Descrição,Valor,Nome Entregador,Telefone Entregador,Nome Usuário,Email Usuário\n");
+        // Add UTF-8 BOM for proper encoding recognition in Excel
+        csv.append("\uFEFF");
+
+        // Use semicolon as separator (Windows/Excel standard for Portuguese locale)
+        csv.append("ID Pedido;Descrição;Valor;Nome Entregador;Telefone Entregador;Nome Usuário;Email Usuário\n");
 
         for (OrderExportDTO order : orders) {
-            csv.append(order.getOrderId()).append(",")
-                    .append("\"").append(order.getDescription()).append("\"").append(",")
-                    .append(order.getValue()).append(",")
-                    .append("\"").append(order.getDeliveryPersonName()).append("\"").append(",")
-                    .append("\"").append(order.getDeliveryPersonPhone()).append("\"").append(",")
-                    .append("\"").append(order.getUserName()).append("\"").append(",")
+            csv.append(order.getOrderId()).append(";")
+                    .append("\"").append(order.getDescription()).append("\"").append(";")
+                    .append(order.getValue()).append(";")
+                    .append("\"").append(order.getDeliveryPersonName()).append("\"").append(";")
+                    .append("\"").append(order.getDeliveryPersonPhone()).append("\"").append(";")
+                    .append("\"").append(order.getUserName()).append("\"").append(";")
                     .append("\"").append(order.getUserEmail()).append("\"")
                     .append("\n");
         }
