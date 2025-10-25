@@ -1,4 +1,3 @@
-target/
 .mvn/
 *.iml
 .idea/
@@ -13,4 +12,11 @@ README.md
 *.md
 Dockerfile
 .dockerignore
+src/
+pom.xml
+mvnw
+mvnw.cmd
+target/*.original
+
+
 
