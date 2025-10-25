@@ -4,3 +4,7 @@ server:
 spring:
   application:
     name: service-c
+
+order:
+  service:
+    url: ${ORDER_SERVICE_URL:http://localhost:8081}

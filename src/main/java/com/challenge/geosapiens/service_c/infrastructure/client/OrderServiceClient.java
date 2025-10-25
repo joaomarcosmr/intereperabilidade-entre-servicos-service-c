@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient(name = "order-service", url = "http://localhost:8081")
+@FeignClient(name = "order-service", url = "${order.service.url}")
 public interface OrderServiceClient {
 
     @GetMapping("/order")
